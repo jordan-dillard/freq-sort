@@ -3,13 +3,29 @@ import java.util.stream.Collectors;
 
 public class FreqSorter {
 
-    private Set<Map.Entry<String, Integer>> uniqueFreqs;
+    // INSTANCE FIELDS
+    private Set<Map.Entry<String, Integer>> uniqueFreqs; // the set of mappings from unique words to their integer-valued frequencies
 
+    // CONSTRUCTORS
+
+    /**
+     * Constructs a FreqSorter with the initial, unaltered list of repeatable words.
+     *
+     * @param words an ArrayList<String> object representing a list of repeatable words
+     */
     public FreqSorter(ArrayList<String> words){
         Map<String, Integer> freqMap = getFreqMap(words);
         this.uniqueFreqs = freqMap.entrySet();
     }
 
+    // FUNCTIONS
+
+    /**
+     * Given a list of (repeatable) words, returns a Hashmap that goes from String keys for each unique word to Integers representing their frequency in the list.
+     *
+     * @param words an ArrayList<String> object representing the list of words to extract a frequency Hashmap from
+     * @return
+     */
     private Map<String, Integer> getFreqMap(ArrayList<String> words){
         Map<String, Integer> freqMap = new HashMap<>();
 
@@ -21,10 +37,16 @@ public class FreqSorter {
         return freqMap;
     }
 
+    /**
+     * Prints each entry in the set of word frequencies on separate lines, in descending order of frequencies
+     */
     public void printInDescendingOrder(){
         this.uniqueFreqs.stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).forEach(System.out::println);
     }
 
+    /**
+     * Prints each entry in the set of word frequencies on separate lines, in ascending order of frequencies
+     */
     public void printInAscendingOrder(){
         this.uniqueFreqs.stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
