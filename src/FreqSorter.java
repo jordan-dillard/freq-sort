@@ -40,14 +40,14 @@ public class FreqSorter {
     /**
      * Prints each entry in the set of word frequencies on separate lines, in descending order of frequencies
      */
-    public void printInDescendingOrder(){
+    public void printByDescendingOrder(){
         this.uniqueFreqs.stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).forEach(System.out::println);
     }
 
     /**
      * Prints each entry in the set of word frequencies on separate lines, in ascending order of frequencies
      */
-    public void printInAscendingOrder(){
+    public void printByAscendingOrder(){
         this.uniqueFreqs.stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
 }
