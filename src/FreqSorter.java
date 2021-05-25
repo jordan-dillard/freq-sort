@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FreqSorter {
 
@@ -20,19 +21,11 @@ public class FreqSorter {
         return freqMap;
     }
 
-    public void sortFreqSetByDescendingOrder(){
-        this.uniqueFreqs.stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue()));
+    public void printInDescendingOrder(){
+        this.uniqueFreqs.stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).forEach(System.out::println);
     }
 
-    public void sortFreqSetByAscendingOrder(){
-        this.uniqueFreqs.stream().sorted(Map.Entry.comparingByValue());
-    }
-
-    public void printFreqs(){
-        for(Map.Entry<String, Integer> set : uniqueFreqs){
-            String word = set.getKey();
-            Integer freq = set.getValue();
-            System.out.println(word + ": " + freq);
-        }
+    public void printInAscendingOrder(){
+        this.uniqueFreqs.stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
 }

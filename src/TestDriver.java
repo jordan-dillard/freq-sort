@@ -6,8 +6,7 @@ public class TestDriver {
     public static void main(String[] args){
         ArrayList<String> input = parseInput();
         FreqSorter freqSorter = new FreqSorter(input);
-        freqSorter.sortFreqSetByDescendingOrder();
-        freqSorter.printFreqs();
+        freqSorter.printInDescendingOrder();
     }
 
     public static ArrayList<String> parseInput(){
